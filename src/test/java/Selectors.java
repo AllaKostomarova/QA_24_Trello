@@ -32,11 +32,6 @@ public class Selectors {
 //        WebElement inputEmail = driver.findElement(By.xpath("//button[@aria-label='Sign up for Trello - it’s free!']/../../input"));
 //        System.out.println("inputEmail-->" + inputEmail.getAttribute("placeholder"));
 
-
-
-
-
-
         driver.quit();
     }
 }
