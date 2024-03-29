@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
     WebDriver wd;
     HelperUser helperUser;
+    HelperBoards helperBoards;
 
     public void init(){
       wd = new ChromeDriver();
@@ -15,6 +16,7 @@ public class ApplicationManager {
       wd.manage().window().maximize();
       wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       helperUser= new HelperUser(wd);
+      helperBoards = new HelperBoards(wd);
     }
 
     public void stop(){
@@ -23,5 +25,9 @@ public class ApplicationManager {
 
     public HelperUser getHelperUser() {
         return helperUser;
+    }
+
+    public HelperBoards getHelperBoards() {
+        return helperBoards;
     }
 }

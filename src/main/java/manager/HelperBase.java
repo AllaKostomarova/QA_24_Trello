@@ -36,4 +36,16 @@ public class HelperBase {
     public boolean isElementPresent(By locator){
         return !findElementsBase(locator).isEmpty();
     }
+
+    public boolean isTextElementEquals(By locator, String text){
+        return findElementBase(locator).getText().equals(text);
+    }
+
+    public void pause (int sec){
+        try {
+            Thread.sleep(1000L *sec);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
