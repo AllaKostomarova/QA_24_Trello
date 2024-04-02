@@ -1,5 +1,6 @@
 package manager;
 
+import models.BoardDto;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
@@ -17,9 +18,9 @@ public class HelperBoards extends HelperBase{
     By btnCloseCreateBoardForm = By.cssSelector("button[data-testid='popover-close']");
 
 
-    public void createNewBoard(String boardTitle) {
+    public void createNewBoard(BoardDto boardDto) {
         clickBase(btnCreateNewBoard);
-        typeBase(inputBoardTitle, boardTitle);
+        typeBase(inputBoardTitle, boardDto.getBoardTitle());
         pause(3);
         clickBase(btnCreateSubmit);
     }
