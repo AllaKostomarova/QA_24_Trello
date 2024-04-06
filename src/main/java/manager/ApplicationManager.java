@@ -16,6 +16,7 @@ public class ApplicationManager {
     public void init(){
       wd = new ChromeDriver();
       wd.navigate().to("https://trello.com/");
+      logger.info("start testing --- navigate to ---> https://trello.com/");
       wd.manage().window().maximize();
       wd.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
       helperUser= new HelperUser(wd);
@@ -23,7 +24,8 @@ public class ApplicationManager {
     }
 
     public void stop(){
-      wd.quit();
+        logger.info("stop testing --- navigate to ---> https://trello.com/");
+        //wd.quit();
     }
 
     public HelperUser getHelperUser() {

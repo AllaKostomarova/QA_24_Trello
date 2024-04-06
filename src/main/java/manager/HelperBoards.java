@@ -17,12 +17,36 @@ public class HelperBoards extends HelperBase{
     By titleBoard = By.cssSelector("a[data-testid='open-boards-link']");
     By btnCloseCreateBoardForm = By.cssSelector("button[data-testid='popover-close']");
 
+    //---------------------------------------
+    By btnDots = By.xpath("//button[@aria-label='Show menu']");
+    By btnCloseBoard = By.xpath("//a[@class='board-menu-navigation-item-link " +
+            "board-menu-navigation-item-link-v2 js-close-board']");
+    By btnCloseSubmit = By.xpath("//input[@type='submit']");
+    //By.cssSelector("input[value='Close']");
+    By btnDeleteBoard = By.cssSelector("button[data-testid='close-board-delete-board-button']");
+    By btnDeleteConfirm = By.cssSelector("button[data-testid='close-board-delete-board-confirm-button']");
+
+
 
     public void createNewBoard(BoardDto boardDto) {
         clickBase(btnCreateNewBoard);
         typeBase(inputBoardTitle, boardDto.getBoardTitle());
         pause(3);
         clickBase(btnCreateSubmit);
+    }
+
+    public void deleteBoard(BoardDto boardDto){
+        clickBoardTitle(boardDto.getBoardTitle());
+        clickBase(btnDots);
+        clickBase(btnCloseBoard);
+        clickBase(btnCloseSubmit);
+        clickBase(btnDeleteBoard);
+        clickBase(btnDeleteConfirm);
+    }
+
+    private void clickBoardTitle(String boardTitle) {
+        String xPAthBoardTitle = "//div[@title='"+boardTitle+"']";
+        clickBase(By.xpath(xPAthBoardTitle));
     }
 
     public boolean isTextInElementEquals_boardTitle(String text) {
