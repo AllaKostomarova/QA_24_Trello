@@ -28,3 +28,9 @@ dependencies {
 test {
     useTestNG()
 }
+
+task boardtesta(type: Test){
+    useTestNG()
+    suites
+
+}
